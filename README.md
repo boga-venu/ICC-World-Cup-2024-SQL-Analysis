@@ -209,7 +209,7 @@ order by no_of_Wickets desc;
 ## How to Use
 
 1. Download all the files from repository
-2. Load the `Data tables.sql` file into SQL database management tool.
+2. Load the `Data tables.sql` file into MySQL Workbench.
 3. Execute all the queries to create database and the necessary tables.
 4. Load the `ICC 2024 Analysis.sql` file.
 5. Execute the queries to perform the analysis.
