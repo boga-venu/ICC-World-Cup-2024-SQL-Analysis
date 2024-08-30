@@ -52,6 +52,10 @@ The data used in this project includes:
   select * from matches limit 10;
   select * from deliveries limit 10;
   ```
+![Screenshot 2024-08-30 134448](https://github.com/user-attachments/assets/2fd0a665-d8ae-4e66-a508-05874d34a897)
+
+![Screenshot 2024-08-30 134611](https://github.com/user-attachments/assets/04059d67-ab11-4ff9-b967-f84ff7c1ad4e)
+
 ### Match Types Analysis
 
 #### Analyze the different types of matches in the tournament:
@@ -61,6 +65,8 @@ The data used in this project includes:
   from matches
   group by match_type;
   ```
+![Screenshot 2024-08-30 134655](https://github.com/user-attachments/assets/e1593bc1-f4e5-40fe-a599-a9c76b4aa313)
+
 ### Team Performance
 
 #### Analyze match-wise team performance information:
@@ -77,6 +83,9 @@ round((sum(runs_off_bat) + sum(extras)) / 20, 2) as RunRate_per_Over
 from deliveries
 group by match_id, innings, batting_team, bowling_team;
 ```
+
+![Screenshot 2024-08-30 135152](https://github.com/user-attachments/assets/a1a67854-8359-4fdf-9d8b-201c8819efe2)
+
 #### Team performance with winning team data:
 ```sql
 -- Match Wise Team Performance Information along with Winning Team
@@ -96,6 +105,9 @@ join matches m on m.match_number = d.match_id
 group by d.match_id, d.innings, d.batting_team, d.bowling_team, m.winner
 having innings <= 2;
 ```
+![Screenshot 2024-08-30 135323](https://github.com/user-attachments/assets/cfa9cc98-a741-4daf-a292-907b2e0ddb16)
+
+
 #### Team performance metrics:
 ```sql
 -- Team Performance
@@ -107,6 +119,8 @@ from match_info
 group by batting_team
 order by Total_Wins desc;
 ```
+
+![Screenshot 2024-08-30 135518](https://github.com/user-attachments/assets/6e0abcb3-f7c6-4afe-9e04-577e9f9ceef2)
 
 ### Player Performance
 
@@ -126,6 +140,9 @@ from deliveries
 group by striker, batting_team
 order by sum(runs_off_bat)+sum(extras) desc;
 ```
+![Screenshot 2024-08-30 135810](https://github.com/user-attachments/assets/cb2acac8-3487-401c-9212-2bd6b9c74311)
+
+
 #### Player Bowling performance
 ```sql
 -- Player Bowling performance Information
@@ -151,6 +168,9 @@ group by bowler
 order by count(bowler) desc) as MInfo
 on PInfo.Player = MInfo.bowler;
 ```
+![Screenshot 2024-08-30 140649](https://github.com/user-attachments/assets/113e78b8-85c5-48c3-b90d-a29d2634b538)
+
+
 ### Venue Analysis
 
 #### Performance metrics according to the venue:
@@ -161,6 +181,9 @@ from matches m
 join deliveries d on m.match_number = d.match_id
 group by venue;
 ```
+![Screenshot 2024-08-30 135541](https://github.com/user-attachments/assets/f69ea0d6-a333-46ff-8b32-64a438d06c7e)
+
+
 ### Other Metrics
 
 #### Performance according to toss_decision
@@ -176,6 +199,9 @@ from matches
 group by toss_winner 
 order by count(toss_winner) desc;
 ```
+![Screenshot 2024-08-30 135746](https://github.com/user-attachments/assets/a849a4fe-572f-46d6-b82c-f6d522535934)
+
+
 #### Wickets Taken in the tournament
 ```sql
 -- DIfferent Wicket types Taken in the tournament
@@ -185,6 +211,7 @@ group by wicket_type
 having wicket_type is not null
 order by no_of_Wickets desc;
 ```
+![Screenshot 2024-08-30 135847](https://github.com/user-attachments/assets/695d2287-7b45-42dc-81c3-15852616f912)
 
 
 ## Methodologies
